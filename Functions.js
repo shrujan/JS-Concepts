@@ -90,3 +90,32 @@ function loop() {
   })()
 
   console.log('class like structure', script1.a()) ; //returns 5
+
+  // ------------------
+// things you can do with a function
+
+// store it in variable
+const fn = () => {
+  console.log('fn stored as var')
+}
+
+fn();
+
+// pass it as params
+function a (fn) {
+  fn()
+}
+
+a( () => {
+  console.log('function passed as param')
+});
+
+// return funcion as output from another function
+function process() {
+  return () => {
+    console.log('funcion is returned');
+  }
+}
+
+let ret = process();
+ret()
