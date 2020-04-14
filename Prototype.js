@@ -90,4 +90,46 @@ for ( let prop in queen) {
 
 /// --------------------------- 
 
+// Functional prototype
+// inheritance prototype vid 4 ** IMP
+
+function mulBy5 (num) {
+    return num*5;
+}
+// going up the prototype chain leads to Base Function's prototype Obj {}
+// IMP: __proto__ lives inside prototype Obj
+// this Prototype method has call, apply, bind. in this case tem1.
+let funBaseProto = mulBy5.__proto__ ;
+
+// so funBaseProto is same as Function.prototype
+console.log(Function.prototype, funBaseProto,funBaseProto === Function.prototype );
+// funBaseProto === Function.prototype // true
+
+// we go up the prototype chain to Object's prototype Object.
+// Base Object has hasOwnProperty(), toString()
+let BaseObjProto = funBaseProto.__proto__; // this points to Object's prototype Object {};
+// BaseObjProto === Object.prototype // ->true
+
+BaseObjProto.__proto__ // null . Nothing above Object Prototype
+// Similarly
+Object.prototype.__proto__ // null
+
+// ----------------------------------
+// ----- ARRAY Prototype Chain
+
+let array = [];
+
+// array we create does not have property map
+// array.__proto__ points to base Array's prototype obj
+// Base Array has map in its prototype 
+array.__proto__.hasOwnProperty('map'); // true
+
+// so basically 
+Array.prototype === array.__proto__// true
+Array.prototype.__proto__ === Object.prototype // Base Object's prototype
+
+// -------------------------
+
+
+
 
