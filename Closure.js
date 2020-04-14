@@ -73,3 +73,42 @@ const func = () => {
 let trigger = func();
 trigger();
 trigger();
+
+// --------------------------
+// ----------- Experiment ----------
+
+const arrNum = [1, 3, 5];
+
+// this does not print all the values in array inside a setTimeout 
+// because, by the time 3 sec passed loop completes execution and is 3
+for (var i = 0; i < arrNum.length; i ++) {
+    setTimeout(() => {
+        console.log('i == ', i)
+    }, 3000)
+}
+console.log('>>>>>>>>>>>>>>>>>>>>>');
+// to print all the values in array
+// 1: Easy way
+// the scope is block level scope and it gets a new binding for
+// each iteration of the loop
+//This means that every closure captures a different i instance
+
+for (let i = 0; i < arrNum.length; i ++) {
+    setTimeout(() => {
+        console.log('iii == ', arrNum[i])
+    }, 3000)
+}
+
+
+// ------- Second way ------
+
+// we passed I tothe closure function as a param which remembered it
+// even after the loop executed
+for (var i = 0; i < arrNum.length; i ++) {
+    (function(closureI) {
+        setTimeout(() => {
+            console.log('iiiii == ', arrNum[closureI])
+        }, 3000)
+    })(i)
+       
+}
