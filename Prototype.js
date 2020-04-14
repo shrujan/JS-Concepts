@@ -39,7 +39,7 @@ console.log(obj.__proto__.__proto__) // null
 // -------- EX 2
 console.log('ex2')
 const dragon = {
-    name: 'shrujan',
+    name: 'shr',
     fire: true,
 
     fight() {
@@ -54,7 +54,7 @@ const dragon = {
 }
 
 const queen = {
-    name: 'Eesha',
+    name: 'eee',
     intro() {
         console.log(`My name is ${this.name} and i am a queen's cat.`)
     }
@@ -90,12 +90,19 @@ for ( let prop in queen) {
 
 /// --------------------------- 
 
-// Functional prototype
+// Functional prototype - Default Prototype Chain
 // inheritance prototype vid 4 ** IMP
 
 function mulBy5 (num) {
     return num*5;
 }
+
+// just like Base Function Constructor has prototype Obj every function you create also hase 
+// protoype Obj
+// ONLY CUSTOM FUNCTIONS(mulBy5()) HAVE PROTOTYPE PROPERTY NOT CUSTOM ARRAY or CUSTOM OBJECT
+
+console.log(mulBy5.prototype)
+
 // going up the prototype chain leads to Base Function's prototype Obj {}
 // IMP: __proto__ lives inside prototype Obj
 // this Prototype method has call, apply, bind. in this case tem1.
@@ -114,10 +121,15 @@ BaseObjProto.__proto__ // null . Nothing above Object Prototype
 // Similarly
 Object.prototype.__proto__ // null
 
+typeof Object // function because of prototype property
+
 // ----------------------------------
 // ----- ARRAY Prototype Chain
 
 let array = [];
+
+// array.prototype; //NOT AVAILABLE only newly created function has prototype 
+
 
 // array we create does not have property map
 // array.__proto__ points to base Array's prototype obj
@@ -130,6 +142,20 @@ Array.prototype.__proto__ === Object.prototype // Base Object's prototype
 
 // -------------------------
 
+// Object inheritance
 
+let obj1 = {};
 
+// obj1 does not have prototype of its own
+// obj1.prototype // <- no prototype
 
+// obj1.__proto__ === Object.prototype;
+// obj1.__proto__ points to base Object Constructor's prototype obj(property)
+
+typeof Object // function
+
+// -----------------
+//  ------ String
+
+String.prototype // works
+'string'.prototype // not there
