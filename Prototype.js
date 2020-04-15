@@ -159,3 +159,36 @@ typeof Object // function
 
 String.prototype // works
 'string'.prototype // not there
+
+
+
+// --------------------------
+
+// ------------ Overriding Date Object prototype and adding custom function
+// USE OLD FUNCIONS as THIS WILL CHANGE IN ARROW FUNCTIONS 
+// Arrow funcion is lexically scoped so since the funcion was written in windows space
+// this is windows 
+// Old funcion is dynamically scoped so this is date
+
+Date.prototype.lastYear = function () {
+    // this is the date object and its property
+    return  (this.getFullYear() - 1)
+}
+
+
+let lastyr = new Date().lastYear();
+
+// ---------------------------
+// --------- OVerriding existing Array Map function
+
+
+Array.prototype.map = function ()  {
+    let arr = this;
+    let newArr = []
+    for (let i = 0; i < arr.length; i++){
+        newArr[i] = arr[i] + 'shr';
+    }
+    return newArr;
+}
+
+let newArr = [1,2,3].map()
