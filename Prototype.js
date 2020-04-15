@@ -191,4 +191,27 @@ Array.prototype.map = function ()  {
     return newArr;
 }
 
-let newArr = [1,2,3].map()
+let newArr = [1,2,3].map();
+
+// ---------- Create a Custom Function's bind with same functionality using call applys -----
+
+Function.prototype.newBind = function (bindThis) {
+    let fn = this;
+    return () => fn.call(bindThis, bindThis.arr)
+}
+
+function avg (arr) {
+    this.length = arr.length;
+}
+
+let obj = {
+    length: -1,
+    arr: [1,2,3]
+}
+
+debugger
+let fn = avg.newBind(obj, obj.arr);
+
+fn();
+
+console.log(obj);
