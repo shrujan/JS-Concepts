@@ -195,9 +195,9 @@ let newArr = [1,2,3].map();
 
 // ---------- Create a Custom Function's bind with same functionality using call applys -----
 
-Function.prototype.newBind = function (bindThis) {
+Function.prototype.newBind = function (passedObj) {
     let fn = this;
-    return () => fn.call(bindThis, bindThis.arr)
+    return () => fn.call(passedObj, passedObj.arr)
 }
 
 function avg (arr) {
@@ -209,7 +209,7 @@ let obj = {
     arr: [1,2,3]
 }
 
-debugger
+
 let fn = avg.newBind(obj, obj.arr);
 
 fn();
