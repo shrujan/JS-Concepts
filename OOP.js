@@ -63,14 +63,30 @@ function ConstructorElf(name, weapon) {
 }
 // usually this keyword inside ConstructorElf would point to windows but in this case
 // this points to ConstructorElf function because of new <- keyword
-// because ConstructorElf is a constuctor function we can use prototype, and it has bind, call, apply 
-
+// because ConstructorElf is a constuctor of Function we can use prototype, and it has bind, call, apply 
+// 
+// Old function is dynamically scoped this is going to change based on who called it.
+// more on ThisEx.js
 ConstructorElf.prototype.attack = function () {
         console.log(`${this.name } attack with ${this.weapon}` );
 }
+
+
+// wont work because since arrow fn is lexixally scoped and since this function is written in windows scope
+// this is undefined
+// because arrow fn is lexically scoped and the function is written in global space
+ConstructorElf.prototype.attack1 =  () =>  {
+    console.log(`${this.name} attacks with ${this.weapon}`)
+}
+
 let vicky = new ConstructorElf('vicky', 'banana')
 vicky.attack();
 
+// in the above statement when we created a new obj using new keywork
+// ConstructorElf got a prototype and vicky proto points to ConstructorElf's prototype which has attack function as well
+console.log(vicky.__proto__) // ConstructorElf prototype
+
+console.log(vicky.prototype) // undefined as only the base construction Function have prototype not newly created obj
 
 
 const sandElf = new Function('name', 'weapon', 
@@ -85,3 +101,4 @@ sandElf.prototype.attack = function () {
 const sandy = new sandElf('sandy', 'sand');
 
 sandy.attack();
+

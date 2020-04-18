@@ -1,6 +1,10 @@
 // Lexical scope : available data + variables depend on where the function is defined
-// this: is dynamically scoped ie depends on how the function is called not defined
+// this: is dynamically scoped ie depends on how/who the function is called not defined
 // to make this Lexically scoped use arrow functions
+// arrow fn, this is basically depends on where the function is defined 
+
+// OLD Function - DYNAMICALLY SCOPED - this Depends on who called it. 
+// ARROW FN - Lexially scoped -this Depends on where its written
 
 let Obj = {
     song: "abc",
