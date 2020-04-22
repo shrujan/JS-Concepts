@@ -39,4 +39,13 @@ const authenticate = (person, dispFn) => {
 
 authenticate({name: 'shrujan', role: 'admin'}, disp);
 authenticate({name: 'eesha', role: 'user'}, disp);
+// -------------------------------
 
+// simple HOF 
+// return fn
+const hof = () => () => 5
+console.log(hof()())
+
+// accepts fn 
+const hof1 = (fn) => fn()
+hof1(() => { console.log(6) })

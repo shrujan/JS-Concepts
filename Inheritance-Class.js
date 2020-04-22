@@ -37,3 +37,8 @@ elfPeter.heal();
 
 const Shrek = new Ogre('Shrek', 'Club', 'Fortress');
 Shrek.build();
+
+// when we use new keywork from class
+console.log(Shrek instanceof Ogre) // true
+console.log(Shrek instanceof Charecter) // true
+
