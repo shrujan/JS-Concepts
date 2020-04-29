@@ -1,0 +1,21 @@
+<!-- run with live server -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Hellosososo</h1>
+</body>
+<script src="./Modules-Es6.js"></script>
+<script type="module" src="./Modules1-ES6.js"></script>
+<script type="module">
+    // publicMethod  need curly bracket because this is one of the function exported
+    // default method var do not need {}
+    import defaultMethod, { publicMethod, age } from './Modules-Es6.js';
+    publicMethod();
+    console.log(age);
+</script>
+</html>

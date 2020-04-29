@@ -87,7 +87,7 @@ function bigBrother1(){
      var littleBrother = function () {
       return 'it is me!!!!';
     }
-    return littleBrother();
+    return littleBrother(); // because of this return code below is not read. otherwise littlebrother is no me!
     var littleBrother = function() {
       return 'no me!';
     }

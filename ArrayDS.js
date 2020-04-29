@@ -4,9 +4,11 @@ let arr = ['a', 'b', 'c'];
 // pushes element to end of arr
 arr.push('d'); //O(1)<- static arr,  
 //in dynamic array it is O(n) as when ever new element are added new memory location is alloted and entire array is stored there
+console.log(arr);
 
 // remove the last item in arr
 arr.pop(); //O(1)
+console.log(arr);
 
 // add item in beginning of arr unshift
 arr.unshift('x'); // O(n)
